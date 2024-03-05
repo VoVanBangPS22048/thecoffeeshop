@@ -26,7 +26,7 @@ export default function Screen9() {
     <View style={styles.container}>
       <View>
         <TouchableOpacity style={styles.btn_back}>
-          <Image style={{ height: 20, width: 30, top: 12, left: 18 }} source={require('../src/img/Arrow_Left.png')} />
+          <Image style={{ height: 20, width: 30, top: 12, left: 18 }} source={require('../src/img/arrowLeft.png')} />
         </TouchableOpacity>
       </View>
 

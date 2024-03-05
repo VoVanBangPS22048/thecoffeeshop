@@ -1,149 +1,156 @@
-import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native'
-import React from 'react'
-
-const Screen8 = () => {
-  return (
-    <View style={style.container}>
-      
-      <View style={style.header}>  
-        <View style={style.wellcomeuser}>
-          <Text style={style.wellcome}>Wellcome</Text>
-          <Text style={style.nameuser}>Anh Lộc</Text> 
-        </View>
-
-        <View style={style.buttoon_Buy_User}>
-          <TouchableOpacity>
-            <Image style={style.Profile} source={require('../src/img/Profile.png')}/>
-          </TouchableOpacity>
-          
-          <Image style={style.Buy} source={require('../src/img/Buy.png')}/>
-        </View>
-      </View>
-      
-
-    <View style={style.body}>
-      <View>
-        <Text style={style.selectCoffe}>Select your coffee</Text>
-      </View>
-      <View style={style.productContainer}>
-        <View style={style.box}>
-          <View style={style.inner}>
-            <Image style={style.item} source={require('../src/img/americano.png')} />
-            <Text style={style.textItem}>americano</Text>
+import { StyleSheet, Text, TouchableOpacity, View, Image, FlatList } from 'react-native'
+import React, { Component } from 'react'
+import flatListData from './data/flatListData';
+class FlatListItem extends Component {
+  render() {
+    return (
+      <View style={{
+        flex: 1,
+      }}>
+        <View style={{
+          flex: 1,
+          height: 200,
+          margin: 7,
+          backgroundColor: '#F7F8FB',
+          alignItems: 'center',
+          borderRadius: 20
+        }}>
+          <View style={{ top: 30}}>
+          <View style={{ alignItems: 'center', top: 16, width: 100 }}>
+            <Image source={require('../src/img/americano.png')} />
           </View>
-        </View>
-
-        <View style={style.box}>
-          <View style={style.inner}>
-            <Image style={style.item} source={require('../src/img/capuchino.png')} />
-            <Text style={style.textItem}>espresso</Text>
+          <View style={{top:25, alignItems:'center'}}>
+            <Text style={styles.flatListItem}>{this.props.item.name}</Text>
           </View>
-        </View>
-
-        <View style={style.box}>
-          <View style={style.inner}>
-            <Image style={style.item} source={require('../src/img/lattee.png')} />
-            <Text style={style.textItem}>lattee</Text>
-          </View>
-        </View>
-        
-        <View style={style.box}>
-          <View style={style.inner}>
-            <Image style={style.item} source={require('../src/img/flatwhilte.png')} />
-            <Text style={style.textItem}>flatwhilte</Text>
           </View>
         </View>
       </View>
+    );
+  }
+}
 
-    </View>
+export default class Screen8 extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <View style={
+            {
+              width: 120,
+              height: 50,
+              left: 25,
+              top: 58,
+            }
+          }>
+            <Text style={
+              {
+                fontSize: 15,
+                fontWeight: 500,
+                color: '#D8D8D8',
+                lineHeight: 21,
+              }
+            }>
+              Welcome!
+            </Text>
+            <Text style={
+              {
+                fontSize: 20,
+                fontWeight: 500,
+                color: '#001833',
+                lineHeight: 27,
+              }
+            }>
+              Name User
+            </Text>
+          </View>
+          <View style={
+            {
+              flexDirection: 'row',
+              width: 130,
+              top: 20,
+              left: 270,
 
-    <View style={style.footer}>
+            }}>
+            <TouchableOpacity>
+              <Image source={require('../src/img/Buy.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity style={{ left: 40, top: 2 }}>
+              <Image source={require('../src/img/Profile.png')} />
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.body}>
+          <View style={styles.select}>
+            <Text style={
+              {
+                color: '#D8D8D8',
+                fontWeight: 500,
+                fontSize: 17,
+                top: 20,
+                left: 20,
+                width: 150
+              }}>Select your coffee</Text>
+          </View>
+          <View style={styles.list}>
+            <FlatList
+              style={{ top: 35 }}
+              data={flatListData}
+              numColumns={2}
+              renderItem={({ item, index }) => {
+                return (
+                  <FlatListItem item={item} index={index}>
 
-    </View>
-    </View>
-  );
-};
+                  </FlatListItem>
+                )
+              }}
+            />
+          </View>
+          <View style={styles.ViewBtnNavigation}>
+            <View style={styles.btnNavigation}>
 
-export default Screen8
+            </View>
+          </View>
+        </View>
+      </View>
+    )
+  };
+}
 
-    header:{
-      
-    },
-    //Text chào người dùng
-    wellcomeuser:{
-      width:120,
-      height: 27,
-      flexShrink: 0,
-      top: 35,
-      left :20,
-    },
-    //style text chào
-    wellcome:{
-      color: '#D8D8D8',
-      fontSize: 18,
-    },
-    //style text tên người dùng
-    nameuser:{
-      color: '#001833',
-      fontSize :20,
 
-    },
-    //style 2 button
-    buttoon_Buy_User:{
-      left:280,
-      
-    },
-    //button profile
-    Profile:{
-      left: 60,
-      top: 24,
-      
-    },
-    //button mua
-    Buy:{
+const styles = StyleSheet.create({
+  btnNavigation:{
+    height:'50%',
+    backgroundColor:'white',
+    width:'95%',
+    left:9,
+    top:20,
+    borderRadius:35
 
+  },
+  flatListItem:{
+    fontSize:16,
+    fontWeight:'bold',
     },
-    //phần thân 
-    body:{
-      width: '100%',
-      height: '100%',
-      top:35,
-      borderRadius: 25,
-      backgroundColor: '#324A59',
-    },
-    selectCoffe:{
-      color: '#D8D8D8',
-      fontSize: 18,
-      top: 15,
-      left: 13,
-      padding:20,
-      marginEnd:10
-    },
-    productContainer:{
-      width:'100%',
-      height:'85%',
-      flexDirection:'row',
-      flexWrap:'wrap',
-    },
-    box:{
-      width:'50%',
-      height:'30%',
-      padding:6,
-    },
-    inner:{
-      flex:1,
-      backgroundColor: '#eee',
-      alignItems:'center',
-      justifyContent:'center',
-      borderRadius:25,
-      marginVertical:5,
-    },
-    item:{
-      margin:5,
-    },
-    textItem:{
-      fontSize:15,
-      color:'#001833',
-    }
+  list: {
+    flex: 1,
+  },
+  ViewBtnNavigation: {
+    flex: 0.3,
+    top:35,
+  },
 
+  body: {
+    backgroundColor: '#324A59',
+    flex: 5,
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,
+  },
+  header: {
+    backgroundColor: '#FFFF',
+    flex: 1,
+
+  },
+  container: {
+    flex: 1
+  },
 })
