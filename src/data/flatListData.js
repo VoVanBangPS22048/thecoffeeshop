@@ -8,15 +8,15 @@ var flatListData=[
     },
     {
         
-        "id ": "1a",
+        "id ": "2a",
         "name": "late",
         "foodDescription":"lateeeeeee",
         "amount":"1",
-        "price":"3.00",
+        "price":"3.00",     
     },
     {
         
-        "id ": "1a",
+        "id ": "3a",
         "name": "Americano",
         "foodDescription":"Nhắc đến cà phê ,",
         "amount":"1",
@@ -24,27 +24,14 @@ var flatListData=[
     },
     {
         
-        "id ": "1a",
-        "name": "Capuchino",
-        "foodDescription":"Nhắc đến cà phê ",
-        "amount":"1",
-        "price":"3.00",
-    },
-    {
-        
-        "id ": "1a",
+        "id ": "4a",
         "name": "Americano",
         "foodDescription":"Nhắc đến cà phê ,",
-        "amount":"1",
-        "price":"3.00",
-    },{
-        
-        "id ": "1a",
-        "name": "Americano",
-        "foodDescription":"Nhắc đến cà phê ,",
-        "amount":"1",
-        "price":"3.00",
+        "amount":"5",
+        "price":"2.00",
     },
+    
+
     
 ];
 module.exports = flatListData;

@@ -128,7 +128,7 @@ const Recommendation = () => {
       </View>
       <View style={styles.footer}>
         <View style={{backgroundColor:'gray', height:60, top:50, borderRadius:30, }}>
-
+          
         </View>
       </View>
     </View>

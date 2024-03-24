@@ -10,8 +10,8 @@ const App = () => {
   return (
     //<Screen8/>
     //<Screen9/>
-    //<ScreenMyOder/>
-    <Recommendation/>
+    <ScreenMyOder/>
+    //<Recommendation/>
     
   );
 };
